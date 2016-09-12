@@ -8,7 +8,7 @@ import dagger.Provides;
 public class ViewModule {
 
     @Provides
-    StringProvider provideStringProvider(){
-        return new StringProvider();
+    TeaPot provideStringProvider(){
+        return new TeaPot();
     }
 }

@@ -21,7 +21,7 @@ public class MainActivityTest {
         ActivityController<MainActivity> controller = Robolectric.buildActivity(MainActivity.class);
         MainActivity testObject = controller.create().start().resume().get();
 
-        TextView textView = (TextView) testObject.findViewById(R.id.hello_textview);
+        TextView textView = (TextView) testObject.findViewById(R.id.tea_textview);
 
         assertEquals("productionString", textView.getText().toString());
     }
