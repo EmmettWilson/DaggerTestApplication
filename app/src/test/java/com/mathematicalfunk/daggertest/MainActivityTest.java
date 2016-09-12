@@ -3,40 +3,21 @@ package com.mathematicalfunk.daggertest;
 import android.widget.TextView;
 
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.robolectric.Robolectric;
-import org.robolectric.RobolectricGradleTestRunner;
-import org.robolectric.RuntimeEnvironment;
-import org.robolectric.annotation.Config;
 import org.robolectric.util.ActivityController;
 
-import it.cosenonjaviste.daggermock.DaggerMockRule;
-
-import static android.os.Build.VERSION_CODES.LOLLIPOP;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
 
-@RunWith(RobolectricGradleTestRunner.class)
-@Config(constants = BuildConfig.class, sdk = LOLLIPOP, application = TestApp.class)
-public class MainActivityTest {
-
-    @Rule public DaggerMockRule<ApplicationComponent> daggerMockRule = new DaggerMockRule<>(ApplicationComponent.class, new ApplicationModule(((TestApp) RuntimeEnvironment.application)))
-            .set(new DaggerMockRule.ComponentSetter<ApplicationComponent>() {
-                @Override
-                public void setComponent(ApplicationComponent applicationComponent) {
-                    ((TestApp) RuntimeEnvironment.application).setComponent(applicationComponent);
-                }
-            });
+public class MainActivityTest extends BaseInjectedRobolectricTest {
 
     @Mock private CoffeeMaker coffeeMaker;
 
-    @InjectMocks MainActivity testObject;
-
+    private MainActivity testObject;
     private ActivityController<MainActivity> controller;
 
     @Before
