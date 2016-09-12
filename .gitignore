@@ -1,3 +1,11 @@
+.DS_Store
+.gradle
+
+*.idea
+*.ipr
+*.iml
+*.log
+
 # Built application files
 *.apk
 *.ap_
