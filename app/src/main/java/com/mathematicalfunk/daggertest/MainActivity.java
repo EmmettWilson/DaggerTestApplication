@@ -9,6 +9,7 @@ import javax.inject.Inject;
 public class MainActivity extends AppCompatActivity {
 
     @Inject TeaPot teaPot; //Application scoped, but not singleton new one every time
+    @Inject CoffeeMaker coffeeMaker; //Per activity scoped get the same instance across config change
     private ActivityComponent component;
 
     @Override
@@ -19,6 +20,9 @@ public class MainActivity extends AppCompatActivity {
 
         TextView textView = (TextView) findViewById(R.id.tea_textview);
         textView.setText(teaPot.pourTea());
+
+        TextView coffeeTextView = (TextView) findViewById(R.id.coffee_textview);
+        coffeeTextView.setText(coffeeMaker.makeCoffee());
     }
 
     @Override
