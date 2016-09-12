@@ -7,5 +7,5 @@ import dagger.Component;
 @Singleton
 @Component(modules = {ApplicationModule.class, ViewModule.class})
 public interface ApplicationComponent {
-    void inject(MainActivity mainActivity);
+    ActivityComponent plus(ActivityModule module);
 }
