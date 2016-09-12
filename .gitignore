@@ -45,6 +45,7 @@ captures/
 .idea/workspace.xml
 /.idea/workspace.xml
 /.idea/libraries
+/.idea/*
 *.idea
 *.ipr
 *.iml
