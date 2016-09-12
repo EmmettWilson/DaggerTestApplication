@@ -22,14 +22,14 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
 
 @RunWith(RobolectricGradleTestRunner.class)
-@Config(constants = BuildConfig.class, sdk = LOLLIPOP, application = DaggerApp.class)
+@Config(constants = BuildConfig.class, sdk = LOLLIPOP, application = TestApp.class)
 public class MainActivityTest {
 
-    @Rule public DaggerMockRule<ApplicationComponent> daggerMockRule = new DaggerMockRule<>(ApplicationComponent.class, new ApplicationModule(((DaggerApp) RuntimeEnvironment.application)))
+    @Rule public DaggerMockRule<ApplicationComponent> daggerMockRule = new DaggerMockRule<>(ApplicationComponent.class, new ApplicationModule(((TestApp) RuntimeEnvironment.application)))
             .set(new DaggerMockRule.ComponentSetter<ApplicationComponent>() {
                 @Override
                 public void setComponent(ApplicationComponent applicationComponent) {
-                    ((DaggerApp) RuntimeEnvironment.application).setComponent(applicationComponent);
+                    ((TestApp) RuntimeEnvironment.application).setComponent(applicationComponent);
                 }
             });
 
