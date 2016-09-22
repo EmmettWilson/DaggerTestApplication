@@ -1,6 +1,7 @@
 package com.mathematicalfunk.daggertest;
 
 import org.junit.Rule;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.RuntimeEnvironment;
@@ -9,10 +10,11 @@ import org.robolectric.annotation.Config;
 import it.cosenonjaviste.daggermock.DaggerMockRule;
 
 import static android.os.Build.VERSION_CODES.LOLLIPOP;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(RobolectricGradleTestRunner.class)
 @Config(constants = BuildConfig.class, sdk = LOLLIPOP, application = TestApp.class)
-public class BaseInjectedRobolectricTest {
+public abstract class BaseInjectedRobolectricTest {
 
     @Rule public DaggerMockRule<ApplicationComponent> daggerMockRule = new DaggerMockRule<>(ApplicationComponent.class, new ApplicationModule(((TestApp) RuntimeEnvironment.application)))
             .set(new DaggerMockRule.ComponentSetter<ApplicationComponent>() {
