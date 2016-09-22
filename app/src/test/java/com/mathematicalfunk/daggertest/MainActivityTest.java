@@ -4,7 +4,6 @@ import android.widget.TextView;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.robolectric.Robolectric;
 import org.robolectric.util.ActivityController;
